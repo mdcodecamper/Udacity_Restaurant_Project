@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Restaurant List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+
+        <!-- ============================     CSS    ============================================= -->
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/linearicons.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/nice-select.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/animate.min.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+
+    </head>
+    <body>
+        <header id="header">
+				<div class="header-top">
+					<div class="container">
+				  		<div class="row justify-content-center">
+						      <div id="logo">
+						        <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='img/logo.png')}}" alt="" title="" /></a>
+						      </div>
+				  		</div>			  					
+					</div>
+				</div>
+				<div class="container main-menu">
+					<div class="row align-items-center justify-content-center d-flex">			
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+                            <li><a href="{{url_for('index')}}">Home</a></li>
+                            <li><a href="{{url_for('restaurantsList')}}">Restaurant List</a></li>		
+                            <li><a href="{{url_for('menuList')}}">Menu</a></li>				          					          		          
+                            <li><a href="contact.html">Contact</a></li>
+                          </ul>
+				      </nav><!-- #nav-menu-container -->					      		  
+					</div>
+				</div>
+            </header><!-- #header -->
+            
+        	<!-- start banner Area -->
+			<section class="about-banner relative">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Restaurant List				
+							</h1>	
+							<p class="text-white link-nav"><a href="{{url_for('index')}}">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{{url_for('restaurantsList')}}"> Restaurant List</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->			
+
+			<!-- Start menu-area Area -->
+            <section class="menu-area section-gap" id="menu">
+                <div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">What kind of Foods we serve for you</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+                    </div>	
+                    
+                    <ul class="filter-wrap filters col-lg-12 no-padding">
+                        <li class="active" data-filter="*">All Restaurant</li>
+                        <li data-filter=".breakfast">For Breakfast</li>
+                        <li data-filter=".lunch">For Lunch</li>
+                        <li data-filter=".dinner">For Dinner</li>
+                        <li data-filter=".budget-meal">For Budget Meal</li>
+                        <li data-filter=".buffet">For Buffet</li>
+                    </ul>
+
+                    {% for i in restaurants %}
+
+                    <div class="filters-content">
+                        <div class="row grid">
+                            <div class="col-md-4 all breakfast">
+								<div class="single-menu">
+									<div class="title-wrap d-flex justify-content-between">
+										<h4>{{ i.name }}</h4>
+									</div>			
+									<p>
+										{{ i.location }}
+									</p>									
+								</div>					                               
+                            </div>                           
+                                                  
+                        </div>
+                    </div>
+                    
+                    {% endfor %}
+                </div>
+            </section>
+            <!-- End menu-area Area -->			
+
+        
+            <script src="{{ url_for('static', filename='js/vendor/jquery-2.2.4.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA') }}"></script>		
+ 			<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>					
+  			<script src="{{ url_for('static', filename='js/easing.min.js') }}"></script>			
+			<script src="{{ url_for('static', filename='js/hoverIntent.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/superfish.min.js') }}"></script>	
+			<script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>						
+			<script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>					
+			<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>			
+            <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>								
+			<script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>	
+			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+</html>

@@ -11,13 +11,15 @@ class Restaurant(Base):
     __tablename__ = 'restaurant'
     id = Column(Integer, primary_key = True)
     name = Column(String(80), nullable = False)
+    location = Column(String(250), nullable = False)
     
 
-class MenuItem(Base):
-    __tablename__ = 'menu_item'
+class Menu(Base):
+    __tablename__ = 'menu'
     id = Column(Integer, primary_key = True)
     name = Column(String(80), nullable = False)
     course = Column(String(250))
+    category = Column(String(80), nullable = False)
     description = Column(String(250))
     price = Column(String(8))
 
